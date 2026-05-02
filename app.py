@@ -252,12 +252,9 @@ def save_image_file(file, subfolder=''):
     if not file or file.filename == '':
         return None
 
-    upload_dir = os.path.join(app.config['UPLOAD_FOLDER'], subfolder)
-    os.makedirs(upload_dir, exist_ok=True)
-
     base_filename = secure_filename(file.filename)
     filename = f"{int(time.time())}_{base_filename}"
-    file.save(os.path.join(upload_dir, filename))
+    storage_path = f"{subfolder}/{filename}" if subfolder else filename
 
     if supabase:
         file_bytes = file.read()
@@ -277,6 +274,7 @@ def save_image_file(file, subfolder=''):
     upload_dir = os.path.join(app.config['UPLOAD_FOLDER'], subfolder)
     os.makedirs(upload_dir, exist_ok=True)
     file.save(os.path.join(upload_dir, filename))
+
     return f"{subfolder}/{filename}" if subfolder else filename
 
 def save_delivery_proof(file):
