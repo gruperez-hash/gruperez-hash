@@ -7,3 +7,9 @@ class Config:
     UPLOAD_FOLDER = os.path.join('static', 'uploads') 
     ADMIN_USERNAME = os.environ.get('ADMIN_USERNAME', 'admin')
     ADMIN_MASTER_KEY = os.environ.get('ADMIN_MASTER_KEY', 'agrichain123')
+
+    SUPABASE_URL = os.environ.get("https://mbifaapobljlcdwvsylj.supabase.co")
+    SUPABASE_KEY = os.environ.get("sb_publishable_82ybNXU6zM5WrIFdYN-XwA_scoiCDxO")
+    SUPABASE_BUCKET = os.environ.get("mbifaapobljlcdwvsylj", "agrichain-uploads")
+
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY) if SUPABASE_URL and SUPABASE_KEY else None
