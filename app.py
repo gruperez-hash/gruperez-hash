@@ -536,7 +536,7 @@ def serialize_product_preview(product):
         'quantity_label': f"{format_quantity(quantity)} {unit}",
         'location': product.farmer.location if product.farmer else 'Location not listed',
         'farmer': product.farmer.username if product.farmer else 'Unknown farmer',
-        'image': url_for('static', filename=f'uploads/{product.image}') if product.image else '',
+        'image': product.image if product.image else '',
         'url': get_product_preview_url(product)
     }
 
