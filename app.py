@@ -23,6 +23,7 @@ import re
 import os
 import time
 import xml.etree.ElementTree as ET
+from supabase import create_client
 
 app = Flask(__name__)
 app.config.from_object(Config)
