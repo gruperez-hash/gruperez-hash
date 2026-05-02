@@ -5,3 +5,5 @@ Werkzeug
 PyMySQL
 scikit-learn
 pandas
+supabase
+gunicorn
