@@ -1931,4 +1931,6 @@ def approve_order(order_id):
 if __name__ == '__main__':
     with app.app_context():
         ensure_database_ready()
-    app.run(debug=True)
+        
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
